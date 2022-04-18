@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_package = "com.example.datastore";
+option java_multiple_files = true;
+
+message Cat {
+  string name = 1;
+  int32 weight = 2;
+  int32 length = 3;
+
+  enum Sex {
+    MALE = 0;
+    FEMALE = 1;
+  }
+
+  Sex sex = 4;
+
+}
+
+message CatList {
+  repeated Cat catList = 1;
+}
+
+message Owner {
+  string name = 1;
+  Address address = 2;
+  CatList cats = 3;
+
+  message Address {
+    string street = 1;
+    string index = 2;
+  }
+}
